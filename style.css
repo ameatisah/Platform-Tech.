@@ -1,0 +1,1243 @@
+:root{
+    --primary-color: #6D0000;
+    --secondary-color: #d5ac54;
+    --white-color: #ffffff;
+    --light-color: #fff9f0;
+    --dark-color: #222222;
+
+    --font-family: Arial, sans-serif;
+
+    --container-width: 1200px;
+
+    --small-radius: 5px;
+    --medium-radius: 10px;
+
+    --transition: 0.3s ease;
+}
+
+
+.header {
+    width: 100%;
+    background-color: var(--primary-color);
+    padding: 20px 0;
+    border-bottom: 1px solid var(--secondary-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+/* Logo */
+.logo a {
+    color: var(--white-color);
+    text-decoration: none;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.logo span {
+    color: var(--secondary-color);
+}
+
+/* Navigation */
+.navbar ul {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    list-style: none;
+}
+
+.navbar a {
+    color: var(--white-color);
+    text-decoration: none;
+    font-size: 15px;
+    transition: var(--transition);
+}
+
+.navbar a:hover {
+    color: var(--secondary-color);
+}
+
+/* Repair Button */
+.repair-btn {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: var(--small-radius);
+    font-weight: bold;
+    white-space: nowrap;
+    transition: var(--transition);
+}
+
+.repair-btn:hover {
+    background-color: var(--white-color);
+}
+
+
+body {
+    font-family: var(--font-family);
+}
+
+
+/* Hamburger Menu */
+#menu-toggle {
+    display: none;
+}
+
+.menu-icon {
+    display: none;
+    cursor: pointer;
+}
+
+.menu-icon span {
+    display: block;
+    width: 27px;
+    height: 3px;
+    background-color: var(--white-color);
+    margin: 5px 0;
+    border-radius: 3px;
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+    .header-content {
+        flex-wrap: wrap;
+    }
+
+    .navbar ul {
+        gap: 15px;
+    }
+
+    .navbar a {
+        font-size: 13px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .header-content {
+        justify-content: space-between;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .navbar {
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        padding: 0;
+    }
+
+    #menu-toggle:checked ~ .navbar {
+        max-height: 500px;
+        padding: 20px 0;
+    }
+
+    .repair-btn {
+        display: inline-block;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .logo a {
+        font-size: 21px;
+    }
+
+    .header {
+        padding: 15px 0;
+    }
+}
+
+
+
+/* HERO SECTION */
+.hero {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    padding: 80px 0;
+    overflow: hidden;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+/* HERO TEXT */
+.hero-text {
+    flex: 1;
+}
+
+.hero-text h1 {
+    font-size: 42px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.hero-text h2 {
+    color: var(--secondary-color);
+    font-size: 28px;
+    margin: 25px 0 15px;
+}
+
+/* HERO BUTTONS */
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 25px;
+}
+
+.shop-btn,
+.hero-buttons .repair-btn {
+    text-decoration: none;
+    padding: 13px 25px;
+    border-radius: var(--small-radius);
+    font-weight: bold;
+    transition: var(--transition);
+}
+
+.shop-btn {
+    background-color: var(--secondary-color);
+    color: var(--dark-color);
+}
+
+.hero-buttons .repair-btn {
+    background-color: var(--white-color);
+    color: var(--primary-color);
+}
+
+.shop-btn:hover,
+.hero-buttons .repair-btn:hover {
+    transform: translateY(-3px);
+}
+
+/* HERO IMAGES */
+.hero-images {
+    flex: 1;
+    overflow: hidden;
+    width: 100%;
+}
+
+.image-track {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+    animation: slide-images 25s linear infinite;
+}
+
+.image-track img {
+    width: 220px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: var(--medium-radius);
+    border: 3px solid var(--secondary-color);
+}
+
+/* IMAGE ANIMATION */
+@keyframes slide-images {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    .hero {
+        padding: 50px 0;
+    }
+
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-text h1 {
+        font-size: 32px;
+    }
+
+    .hero-text h2 {
+        font-size: 24px;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .image-track img {
+        width: 180px;
+        height: 220px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-text h1 {
+        font-size: 27px;
+    }
+
+    .hero-text p {
+        font-size: 14px;
+    }
+
+    .image-track img {
+        width: 150px;
+        height: 190px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .image-track {
+        animation: none;
+    }
+}
+
+
+
+/* SHOP SECTION */
+.shop {
+    background-color: var(--light-color);
+    padding: 80px 0;
+}
+
+/* SECTION TITLE */
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title h2 {
+    color: var(--primary-color);
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.section-title h3 {
+    color: var(--secondary-color);
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.section-title p {
+    color: var(--dark-color);
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 8px;
+}
+
+/* CATEGORY GRID */
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+/* CATEGORY CARD */
+.category-card {
+    background-color: var(--white-color);
+    border-radius: var(--medium-radius);
+    overflow: hidden;
+    text-align: center;
+    padding-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: var(--transition);
+}
+
+.category-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.category-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.category-card h3 {
+    color: var(--primary-color);
+    font-size: 20px;
+    margin: 18px 10px 8px;
+}
+
+.category-card p {
+    color: var(--dark-color);
+    font-size: 17px;
+    margin: 0 10px;
+    line-height: 1.7;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 992px) {
+    .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .shop {
+        padding: 50px 0;
+    }
+
+    .section-title h2 {
+        font-size: 28px;
+    }
+
+    .section-title h3 {
+        font-size: 24px;
+    }
+
+    .category-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .category-card img {
+        height: 230px;
+    }
+}
+
+
+/* REPAIRS SECTION */
+.repairs {
+    background-color: var(--white-color);
+    padding: 80px 0;
+}
+
+.repairs-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+/* REPAIR IMAGE */
+.repairs-image {
+    flex: 1;
+}
+
+.repairs-image img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    border-radius: var(--medium-radius);
+    border: 3px solid var(--secondary-color);
+}
+
+/* REPAIR TEXT */
+.repairs-text {
+    flex: 1;
+}
+
+.repairs-text h2 {
+    color: var(--primary-color);
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.repairs-text h3 {
+    color: var(--secondary-color);
+    font-size: 26px;
+    margin-bottom: 20px;
+}
+
+.repairs-text p {
+    color: var(--dark-color);
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+/* REPAIR BUTTON */
+.repairs-text .repair-btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    text-decoration: none;
+    padding: 13px 25px;
+    border-radius: var(--small-radius);
+    font-weight: bold;
+    margin-top: 15px;
+    transition: var(--transition);
+}
+
+.repairs-text .repair-btn:hover {
+    background-color: var(--secondary-color);
+    color: var(--dark-color);
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    .repairs {
+        padding: 50px 0;
+    }
+
+    .repairs-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .repairs-image img {
+        height: 280px;
+    }
+
+    .repairs-text h2 {
+        font-size: 27px;
+    }
+
+    .repairs-text h3 {
+        font-size: 23px;
+    }
+}
+
+/* ABOUT SECTION */
+.about {
+    background-color: var(--light-color);
+    padding: 80px 0;
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+/* ABOUT TEXT */
+.about-text {
+    flex: 1;
+}
+
+.about-text h2 {
+    color: var(--primary-color);
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.about-text h3 {
+    color: var(--secondary-color);
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    color: var(--dark-color);
+    font-size: 16px;
+    line-height: 1.9;
+    margin-bottom: 20px;
+}
+
+/* ARABIC ABOUT */
+.arabic-about {
+    text-align: right;
+    margin-top: 30px;
+    padding-top: 25px;
+    border-top: 2px solid var(--secondary-color);
+}
+
+.arabic-about h2 {
+    color: var(--primary-color);
+}
+
+.arabic-about h3 {
+    color: var(--secondary-color);
+}
+
+/* ABOUT IMAGE */
+.about-image {
+    flex: 1;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: var(--medium-radius);
+    border: 3px solid var(--secondary-color);
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    .about {
+        padding: 50px 0;
+    }
+
+    .about-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .about-text h2 {
+        font-size: 27px;
+    }
+
+    .about-text h3 {
+        font-size: 20px;
+    }
+
+    .about-image img {
+        height: 280px;
+    }
+}
+
+
+.featured-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.product-card {
+    min-width: 0;
+    overflow: hidden;
+    background: var(--white-color);
+    border-radius: var(--medium-radius);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: var(--transition);
+}
+
+.product-card img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    display: block;
+}
+
+.product-info {
+    padding: 15px;
+}
+
+.product-info h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.product-info p {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.product-info h4 {
+    margin-bottom: 8px;
+}
+
+.product-price {
+    color: var(--primary-color);
+    font-size: 18px;
+    margin-top: 15px;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+/* TABLET */
+@media (max-width: 992px) {
+    .featured-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* MOBILE: 2 CARDS PER ROW */
+@media (max-width: 600px) {
+    .featured-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .product-card img {
+        height: 140px;
+    }
+
+    .product-info {
+        padding: 10px;
+    }
+
+    .product-info h3 {
+        font-size: 15px;
+    }
+
+    .product-info p {
+        font-size: 12px;
+    }
+
+    .product-price {
+        font-size: 15px;
+    }
+}
+/* FEATURED PRODUCTS SECTION */
+
+.featured-products {
+    padding: 70px 0;
+    background: var(--light-color);
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-title h2 {
+    color: var(--primary-color);
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.section-title p {
+    color: var(--dark-color);
+    font-size: 17px;
+    margin-bottom: 8px;
+}
+
+.section-title .arabic-title {
+    color: var(--primary-color);
+    font-size: 20px;
+    font-weight: bold;
+    direction: rtl;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 768px) {
+    .featured-products {
+        padding: 50px 0;
+    }
+
+    .section-title h2 {
+        font-size: 25px;
+    }
+
+    .section-title p {
+        font-size: 15px;
+    }
+
+    .section-title .arabic-title {
+        font-size: 18px;
+    }
+}
+
+
+/* REPAIRS SECTION */
+
+.repairs-section {
+    padding: 80px 0;
+    background: var(--light-color);
+}
+
+.repairs-intro {
+    max-width: 750px;
+    margin: 0 auto 50px;
+    text-align: center;
+}
+
+.repairs-intro h2 {
+    color: var(--primary-color);
+    font-size: 45px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.repairs-intro h2 span {
+    display: block;
+    color: var(--secondary-color);
+}
+
+.repairs-description {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--dark-color);
+    margin-bottom: 15px;
+}
+
+.repairs-arabic {
+    font-size: 17px;
+    line-height: 1.9;
+    color: var(--dark-color);
+    margin-bottom: 25px;
+}
+
+.repairs-main-btn {
+    display: inline-block;
+    background: var(--primary-color);
+    color: var(--white-color);
+    padding: 14px 28px;
+    border-radius: var(--small-radius);
+    text-decoration: none;
+    font-weight: bold;
+    transition: var(--transition);
+}
+
+.repairs-main-btn:hover {
+    background: var(--secondary-color);
+    color: var(--dark-color);
+}
+
+/* ==========================
+   REPAIRS SECTION
+========================== */
+
+.repairs-section {
+    padding: 70px 0;
+    background: var(--primary-color);
+    color: var(--white-color);
+}
+
+.repairs-section .container {
+    display: grid;
+    grid-template-columns: 0.9fr 1.5fr;
+    gap: 35px;
+    align-items: start;
+}
+
+/* INTRODUCTION */
+
+.repairs-intro {
+    padding: 15px 0;
+}
+
+.repair-small-title {
+    color: var(--secondary-color);
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.repairs-intro h2 {
+    color: var(--white-color);
+    font-size: 45px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.repairs-intro h2 span {
+    display: block;
+    color: var(--secondary-color);
+}
+
+.repair-line {
+    width: 90px;
+    height: 4px;
+    background: var(--secondary-color);
+    margin: 25px 0;
+}
+
+.repairs-description,
+.repairs-arabic {
+    color: var(--white-color);
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.repairs-main-btn {
+    display: inline-block;
+    background: var(--secondary-color);
+    color: var(--dark-color);
+    padding: 14px 22px;
+    border-radius: var(--small-radius);
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: var(--transition);
+}
+
+.repairs-main-btn:hover {
+    background: var(--white-color);
+    transform: translateY(-3px);
+}
+
+/* REPAIRS GRID */
+
+.repairs-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+/* REPAIR CARD */
+
+.repair-card {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--medium-radius);
+    overflow: hidden;
+    min-width: 0;
+    transition: var(--transition);
+}
+
+.repair-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--secondary-color);
+}
+
+/* CARD IMAGE */
+
+.repair-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    display: block;
+}
+
+/* CARD CONTENT */
+
+.repair-card-content {
+    padding: 18px;
+}
+
+.repair-number {
+    display: inline-block;
+    color: var(--secondary-color);
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.repair-card h3 {
+    color: var(--white-color);
+    font-size: 19px;
+    margin-bottom: 10px;
+}
+
+.repair-card h4 {
+    color: var(--secondary-color);
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.repair-card p {
+    color: var(--white-color);
+    font-size: 13px;
+    line-height: 1.7;
+    margin-bottom: 12px;
+}
+
+.repair-card a {
+    display: inline-block;
+    color: var(--secondary-color);
+    font-size: 13px;
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 8px;
+    transition: var(--transition);
+}
+
+.repair-card a:hover {
+    color: var(--white-color);
+}
+
+/* TABLET RESPONSIVE */
+
+@media (max-width: 992px) {
+    .repairs-section .container {
+        grid-template-columns: 1fr;
+    }
+
+    .repairs-intro {
+        max-width: 650px;
+    }
+}
+
+/* MOBILE RESPONSIVE */
+
+@media (max-width: 600px) {
+    .repairs-section {
+        padding: 45px 0;
+    }
+
+    .repairs-intro h2 {
+        font-size: 34px;
+    }
+
+    .repairs-description,
+    .repairs-arabic {
+        font-size: 14px;
+    }
+
+    .repairs-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .repair-card img {
+        height: 180px;
+    }
+
+    .repair-card-content {
+        padding: 15px;
+    }
+}
+
+
+/* CONTACT SECTION */
+
+.contact-section {
+    padding: 80px 0;
+    background: var(--light-color);
+}
+
+.contact-section .section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.contact-section .section-title span {
+    color: var(--secondary-color);
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.contact-section .section-title h2 {
+    color: var(--primary-color);
+    font-size: 36px;
+    margin: 12px 0;
+}
+
+.contact-section .section-title p {
+    color: var(--dark-color);
+    line-height: 1.7;
+}
+
+.contact-section .section-title h3 {
+    color: var(--primary-color);
+    margin-top: 20px;
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 35px;
+    align-items: stretch;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-item {
+    background: var(--white-color);
+    padding: 25px;
+    border-left: 4px solid var(--secondary-color);
+    border-radius: var(--medium-radius);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+.contact-item h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.contact-item p {
+    color: var(--dark-color);
+    line-height: 1.6;
+}
+
+.contact-item span {
+    display: block;
+    color: #777;
+    margin-top: 8px;
+}
+
+.contact-item a {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 18px;
+    background: var(--primary-color);
+    color: var(--white-color);
+    text-decoration: none;
+    border-radius: var(--small-radius);
+    transition: var(--transition);
+}
+
+.contact-item a:hover {
+    background: var(--secondary-color);
+    color: var(--dark-color);
+}
+
+.contact-map {
+    width: 100%;
+    min-height: 100%;
+    border: 3px solid var(--secondary-color);
+    border-radius: var(--medium-radius);
+    overflow: hidden;
+}
+
+.contact-map iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+    display: block;
+    border: 0;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 768px) {
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-section .section-title h2 {
+        font-size: 28px;
+    }
+
+    .contact-map iframe {
+        min-height: 350px;
+    }
+}
+
+
+/* FOOTER SECTION */
+
+.footer {
+    background: var(--primary-color);
+    color: var(--white-color);
+    padding: 65px 0 20px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 35px;
+}
+
+.footer-about h2 {
+    color: var(--secondary-color);
+    font-size: 25px;
+    margin-bottom: 18px;
+}
+
+.footer h3 {
+    color: var(--secondary-color);
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.footer p {
+    color: var(--white-color);
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 12px;
+}
+
+.footer-about p:last-child {
+    text-align: right;
+}
+
+.footer-links,
+.footer-services,
+.footer-contact {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-links a,
+.footer-contact a {
+    color: var(--white-color);
+    text-decoration: none;
+    font-size: 14px;
+    margin-bottom: 13px;
+    transition: var(--transition);
+}
+
+.footer-links a:hover,
+.footer-contact a:hover {
+    color: var(--secondary-color);
+    padding-left: 5px;
+}
+
+.footer-contact a {
+    background: var(--secondary-color);
+    color: var(--dark-color);
+    padding: 10px 16px;
+    border-radius: var(--small-radius);
+    font-weight: bold;
+}
+
+.footer-contact a:hover {
+    background: var(--white-color);
+    color: var(--primary-color);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+    margin-top: 45px;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 13px;
+}
+
+/* RESPONSIVE FOOTER */
+
+@media (max-width: 900px) {
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 550px) {
+    .footer {
+        padding: 45px 0 20px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px 20px;
+    }
+
+    .footer-about {
+        grid-column: 1 / -1;
+    }
+
+    .footer-about h2 {
+        font-size: 22px;
+    }
+
+    .footer h3 {
+        font-size: 16px;
+    }
+
+    .footer p,
+    .footer-links a,
+    .footer-contact a {
+        font-size: 13px;
+    }
+}
